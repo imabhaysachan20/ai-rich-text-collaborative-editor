@@ -76,7 +76,7 @@ export async function inviteUser(email: string,id:string) {
             userId:email,
             role:"editor",
             createdAt:new Date(),
-            id,
+            roomId:id,
         })
             
         
@@ -84,5 +84,21 @@ export async function inviteUser(email: string,id:string) {
     } catch (err) {
         console.error("Error deleting document:", err);
         return { success: false, msg: "Failed to invite user" };
+    }
+}
+
+export async function deleteUser(email: string,sid:string) {
+    await auth.protect();
+    try {
+        const { sessionClaims } = await auth();
+        if (!sessionClaims?.email) {
+            return { success: false, msg: "Unauthorized" };
+        }
+
+        await adminDb.collection('users').doc(email).collection('rooms').doc(sid).delete();
+        return { success: true };
+    } catch (err) {
+        console.error("Error deleting user:", err);
+        return { success: false, msg: "Failed to delete document" };
     }
 }

@@ -19,7 +19,7 @@ import {toast} from "react-toastify"
 import { Input } from "./ui/input";
 
 const InviteUser = () => {
-  
+  const router = useRouter();
   const [email,setEmail]  = useState("");
   const {id:roomId} = useRoom()
   const [isPending,startTransition] = useTransition();
@@ -28,6 +28,7 @@ const InviteUser = () => {
 
 const handleInvite = async (e:FormEvent)=>{
   
+  
 
   e.preventDefault();
   startTransition(async()=>{
@@ -35,7 +36,9 @@ const handleInvite = async (e:FormEvent)=>{
 
     if (success) {
       setIsOpen(false)
+      router.refresh();    
       toast.success("User Added To Document")
+
     }
       else {
         toast.error("Something went wrong.")

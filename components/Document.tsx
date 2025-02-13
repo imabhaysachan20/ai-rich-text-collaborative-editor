@@ -10,10 +10,12 @@ import Editor from './Editor'
 import useOwner from '@/lib/useOwner'
 import DeleteComponent from './DeleteComponent'
 import InviteUser from './InviteUser'
+import ManageUsers from './ManageUsers'
+import UserAvatar from './UserAvatar'
 
 function Document({id}:{id:string}) {
   const isOwner = useOwner();
-  console.log('1..',isOwner);
+  
   
     const[docName,setDocName] = useState("");
     const [data,loading,error] = useDocumentData(doc(db,'documents',id));
@@ -47,9 +49,9 @@ function Document({id}:{id:string}) {
         </form>
       </div>
 
-      <div>
-
-
+      <div className='flex max-w-6xl mx-auto justify-between items-center mb-5 mt-4'>
+          <ManageUsers/>
+          <UserAvatar/>
       </div>
 
       <hr className='pb-10 max-w-6xl mx-auto'></hr>

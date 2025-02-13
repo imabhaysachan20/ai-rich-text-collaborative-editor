@@ -8,10 +8,12 @@ import "@blocknote/mantine/style.css";
 import * as Y from "yjs";
 import { LiveblocksYjsProvider } from "@liveblocks/yjs";
 import { useRoom } from "@liveblocks/react/suspense";
-import { MoonIcon, SunIcon } from "lucide-react";
+import { BookAIcon, LanguagesIcon, MoonIcon, SunIcon } from "lucide-react";
 import { Button } from "./ui/button";
 import { useSelf } from "@liveblocks/react/suspense";
 import stringToColor from "@/lib/stringToColor";
+import Translate from "./Translate";
+import Summarise from "./Summarise";
 
 type EditorProps = {
   doc: Y.Doc;
@@ -69,6 +71,8 @@ const Editor = () => {
   return (
     <div className="max-w-6xl mx-auto">
       <div className="flex items-center gap-2 mb-10 justify-end">
+       <Translate/>
+       <Summarise/>
         <Button
           className={`hover:text-white ${
             darkMode
