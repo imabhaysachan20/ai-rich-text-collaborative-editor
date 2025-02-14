@@ -10,7 +10,7 @@ function LiveBlockProvider({children}:{
     }
   return (
     
-    <LBP authEndpoint={'/auth-endpoint'}>
+    <LBP throttle={16} authEndpoint={'/auth-endpoint'}>
     {children}
     </LBP>
   )

@@ -5,7 +5,7 @@ import LoadingSpinner from './LoadingSpinner'
 import LiveCursorProvider from './LiveCursorProvider'
 function RoomProvider({roomId,children}:{children:React.ReactNode,roomId:string}) {
   return (
-    <RP id={roomId} initialPresence={{
+    <RP  id={roomId} initialPresence={{
         cursor:null
     }} >
         <ClientSideSuspense fallback={<LoadingSpinner/>}>

@@ -36,3 +36,5 @@ yarn-error.log*
 next-env.d.ts
 service-key.json
 ai-rich-text-editor-firebase-adminsdk-l8epr-6f8602516f.json
+
+.vercel
