@@ -2,12 +2,12 @@ import RoomProvider from '@/components/RoomProvider'
 import { auth } from '@clerk/nextjs/server'
 import React from 'react'
 
-function Layout({children, params:{id}}:{
+async function Layout({children, params}:{
     children:React.ReactNode,
-    params:{id:string}
+    params:Promise<any>
 }) {
     auth.protect();
-    
+    const {id} = await params;
   return (
 
     <RoomProvider roomId={id}>

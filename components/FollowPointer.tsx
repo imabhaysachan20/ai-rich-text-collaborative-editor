@@ -20,7 +20,7 @@ const FollowPointer = ({x,y,info}:{
   <polygon points="2,2 18,15 10,15 15,28 8,25 5,30" 
     fill={color}
     stroke={color}
-    stroke-width="2"/>
+    strokeWidth="2"/>
 </svg>
 
     <motion.div className="px-2 py-2 bg-neutral-200 text-black font-bold whitespace-nowrap w-max">
